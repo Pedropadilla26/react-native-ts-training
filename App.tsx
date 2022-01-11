@@ -17,9 +17,23 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator,  NativeStackScreenProps} from '@react-navigation/native-stack';
+
+const RootStack = createNativeStackNavigator<RootStackParamList>();
+
+type RootStackParamList = {
+  Home: undefined;
+  Profile: {name: string};
+};
+
+type profileProps = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+type homeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+
 
 const Section: React.FC<{
   title: string;
@@ -49,13 +63,11 @@ const Section: React.FC<{
   );
 };
 
-const App = () => {
+const HomeScreen = ({navigation}: homeProps) => {
   const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
@@ -69,10 +81,33 @@ const App = () => {
           <Section title="Starting the app">
             This is just the first commit of the app
           </Section>
+          <Button
+            title="Go to Jane's profile"
+            onPress={() => navigation.navigate('Profile', {name: 'Jane'})}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
+  )
+}
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <RootStack.Navigator initialRouteName="Home">
+        <RootStack.Screen name="Home" component={HomeScreen} />
+        <RootStack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          initialParams={{name: ""}}
+        />
+      </RootStack.Navigator>
+    </NavigationContainer>
   );
+};
+
+const ProfileScreen = ({route, navigation }: profileProps) => {
+  return <Text>This is {route.params.name}'s profile</Text>;
 };
 
 const styles = StyleSheet.create({
