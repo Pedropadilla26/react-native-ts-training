@@ -1,16 +1,11 @@
-import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import React from 'react'
+import { StyleSheet, Text, useColorScheme, View } from 'react-native'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 export const Section: React.FC<{
-  title: string;
-}> = ({children, title}) => {
-  const isDarkMode = useColorScheme() === 'dark';
+  title: string
+}> = ({ children, title }) => {
+  const isDarkMode = useColorScheme() === 'dark'
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -19,17 +14,19 @@ export const Section: React.FC<{
           {
             color: isDarkMode ? Colors.white : Colors.black,
           },
-        ]}>
-        Learn about 
+        ]}
+      >
+        Learn about
         <Text
-        style={[
-          styles.sectionTitleBolder,
-          {
-            color: isDarkMode ? '#D1EBFF' : '#0A1172',
-          },
-        ]}>
-        {title}
-      </Text>
+          style={[
+            styles.sectionTitleBolder,
+            {
+              color: isDarkMode ? '#D1EBFF' : '#0A1172',
+            },
+          ]}
+        >
+          {title}
+        </Text>
       </Text>
 
       <Text
@@ -38,12 +35,13 @@ export const Section: React.FC<{
           {
             color: isDarkMode ? Colors.light : Colors.dark,
           },
-        ]}>
+        ]}
+      >
         {children}
       </Text>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   sectionContainer: {
@@ -66,4 +64,4 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
-});
+})

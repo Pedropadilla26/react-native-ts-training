@@ -2,9 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "lib": [
-      "es2017"
-    ],
+    "lib": ["es2017"],
     "allowJs": true,
     "jsx": "react-native",
     "noEmit": true,
@@ -16,11 +14,6 @@
     "skipLibCheck": false,
     "resolveJsonModule": true
   },
-  "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ],
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"],
   "extends": "expo/tsconfig.base"
 }

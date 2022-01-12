@@ -1,0 +1,15 @@
+{
+  "ast": null,
+  "code": "var _interopRequireDefault = require(\"@babel/runtime/helpers/interopRequireDefault\");\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.InfoScreen = void 0;\n\nvar _react = _interopRequireDefault(require(\"react\"));\n\nvar _nativeStack = require(\"@react-navigation/native-stack\");\n\nvar _Section = require(\"./Section\");\n\nvar _this = this,\n    _jsxFileName = \"C:\\\\Users\\\\Pedro\\\\Desarrollo\\\\reactNativeTrainingTs\\\\src\\\\components\\\\Info.tsx\";\n\nvar RootStack = (0, _nativeStack.createNativeStackNavigator)();\n\nvar InfoScreen = function InfoScreen(_ref) {\n  var route = _ref.route,\n      navigation = _ref.navigation;\n  return _react.default.createElement(_Section.Section, {\n    title: route.params.name,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 16,\n      columnNumber: 5\n    }\n  }, \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\");\n};\n\nexports.InfoScreen = InfoScreen;",
+  "map": {
+    "version": 3,
+    "sources": ["C:/Users/Pedro/Desarrollo/reactNativeTrainingTs/src/components/Info.tsx"],
+    "names": ["RootStack", "InfoScreen", "route", "navigation", "params", "name"],
+    "mappings": ";;;;;;;AAAA;;AAEA;;AACA;;;;;AAEA,IAAMA,SAAS,GAAG,8CAAlB;;AAQO,IAAMC,UAAU,GAAG,SAAbA,UAAa,OAAqC;AAAA,MAAnCC,KAAmC,QAAnCA,KAAmC;AAAA,MAA5BC,UAA4B,QAA5BA,UAA4B;AAC7D,SACE,6BAAC,gBAAD;AAAS,IAAA,KAAK,EAAED,KAAK,CAACE,MAAN,CAAaC,IAA7B;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,qcADF;AAKD,CANM",
+    "sourcesContent": [
+      "import React from 'react';\nimport {Text} from 'react-native';\nimport {createNativeStackNavigator, NativeStackScreenProps} from '@react-navigation/native-stack';\nimport {Section} from './Section'\n\nconst RootStack = createNativeStackNavigator<RootStackParamList>();\n\ntype RootStackParamList = {\n  Info: {name: string};\n};\n\ntype infoProps = NativeStackScreenProps<RootStackParamList, 'Info'>;\n\nexport const InfoScreen = ({route, navigation }: infoProps) => {\n  return (\n    <Section title={route.params.name}>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n    </Section>\n  );\n};\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "script"
+}
